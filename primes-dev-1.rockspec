@@ -4,9 +4,9 @@ source = {
 	url = "git+https://github.com/DarkWiiPlayer/lua-primes.git"
 }
 description = {
-	summary = "",
+	summary = "A module to calculate prime numbers and prime factorizations in Lua.",
 	homepage = "https://github.com/darkwiiplayer/lua-primes",
-	license = "Unlicense"
+	license = "Unlicense",
 }
 build = {
 	type = "builtin",
