@@ -85,19 +85,14 @@ local primes = setmetatable({2,3--[[just hard-code the even special case and fol
 	end
 end})
 
-function primes:factorize(subject)
-	if subject == 1 then
-		return -- Can be ommitted for implicit return ;)
-	elseif subject > 0 then
-		for i=1, infinity do
-			local candidate = self[i]
-			if subject % candidate == 0 then
-				return candidate, self:factorize(subject/candidate)
-			end
+function primes:factorize(subject, start)
+	start = start or 2
+	for div = start, subject/2 do
+		if subject % div == 0 then
+			return div, self:factorize(subject/div, div)
 		end
-	else
-		return nil, "Can't be bothered to look up if negative numbers have a prime factorization"
 	end
+	return subject
 end
 
 return primes
