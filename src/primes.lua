@@ -85,6 +85,10 @@ local primes = setmetatable({2,3--[[just hard-code the even special case and fol
 	end
 end})
 
+function primes.prime(candidate)
+	return miller_rabin(candidate, witnesses(candidate))
+end
+
 function primes:factorize(subject, start)
 	start = start or 2
 	for div = start, subject/2 do
